@@ -92,7 +92,6 @@ void checkSensors() {
   for (int pin = 0; pin <= 7; pin++) {
     hitavg = multiplex[pin];
     pad = pin;
-
     if ((hitavg > PadCutOff[pad])) {
       if ((activePad[pad] == false)) {
         if (VelocityFlag == true) {
@@ -100,6 +99,9 @@ void checkSensors() {
         } else {
           hitavg = 127;
         }
+
+        if (hitavg >= 250) hitavg = 250;
+
         MIDI_TX(144, PadNote[pad], hitavg);
         PinPlayTime[pad] = 0;
         activePad[pad] = true;
@@ -117,8 +119,8 @@ void checkSensors() {
 }
 
 void MIDI_TX(byte MESSAGE, byte PITCH, byte VELOCITY) {
-  status = MESSAGE | byte(midichanne);
-  Serial.write(status);
+  MESSAGE |=  byte(0);
+  Serial.write(MESSAGE);
   Serial.write(PITCH);
   Serial.write(VELOCITY);
 }
