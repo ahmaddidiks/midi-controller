@@ -1,0 +1,21 @@
+
+####################
+0 -> kick (36)	 --> x0
+1 -> snare (39)	 --> x4
+2 -> tom1 (72)   --> x2
+3 -> tom2 (70)   --> x6
+4 -> floor (66)	 --> x1
+5 -> hihet (56)   --> x5
+6 -> crash (77) --> x3
+7 -> ride (61)  --> x7
+
+######################
+Kabel
+
+kuning --> pin4
+orange --> pin3
+coklat --> pin2
+putih  --> pin A0
+biru   --> gnd
+merah  --> 5V
+
